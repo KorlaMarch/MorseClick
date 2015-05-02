@@ -20,7 +20,7 @@ function GameManager(){
 	this.score = 0;
 	this.highscore = 0;
 	this.speed = 6.0;
-	this.pause = true;
+	this.pause = false;
 	this.track = new morseTrack();
 	while(this.track.queue.length<16){
 		this.track.randomChar();
