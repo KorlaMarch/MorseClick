@@ -1,0 +1,9 @@
+@font-face{
+	font-family: "Quark";
+	src: url(Quark-Bold.otf);
+}
+
+@font-face{
+	font-family: "THSarabunNew";
+	src: url(THSarabunNewBold.woff) format("woff");
+}

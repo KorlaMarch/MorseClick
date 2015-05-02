@@ -1,0 +1,85 @@
+@import url(../fonts/fonts.css);
+html,body{
+	background: #ecf0f1;
+	color: #2c3e50;
+	font-family: "THSarabunNew", sans-serif;
+	font-size: 18px;
+}
+
+.container{
+	width: 700px; 
+	margin: 0 auto; 
+}
+
+h1,h4{
+	font-family: "Quark";
+	margin: 0;
+}
+
+h1{
+	font-size: 72px;
+}
+
+h4{
+	float: right;
+	position: relative;
+	top: -20px;
+}
+
+#score:before{
+	content: "SCORE: ";
+}
+
+#highscore:before{
+	content: "HIGHSCORE: ";
+}
+
+.title, .scores-container{
+	display: inline-block;
+}
+
+.scores-container{
+	font-family: "THSarabunNew";
+	font-size: 48px;
+	margin-left: 10px;
+	position: relative;
+	top: -10px;
+}
+
+#score, #highscore{
+	height: 45px;
+}
+
+.game-container{
+	width: 600px;
+	height: 500px;
+}
+
+.game-container{
+	margin: 0 auto; 
+	position: relative;
+}
+
+#game{
+	position: absolute;
+	z-index: 1;
+}
+
+.clearfix{
+	overflow: hidden;
+}
+
+.button{
+	width: 145px;
+	height: 145px;
+	background-image: url("img/button.png");
+	background-position: top;
+	border-radius: 50%;
+	position: absolute;
+	margin: 355px 227px 0px; 
+	z-index: 2;
+}
+
+.button.active{
+	background-position: bottom;
+}
