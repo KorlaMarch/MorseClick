@@ -1,4 +1,7 @@
 $( document ).ready(function(){
+	$( document ).on("dbltap", function(event) {
+		event.gesture.preventDefault();
+	});
 	new GameManager();
 });
 
