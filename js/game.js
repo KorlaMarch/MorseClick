@@ -1,7 +1,4 @@
 $( document ).ready(function(){
-	$( document ).on("dbltap", function(event) {
-		event.gesture.preventDefault();
-	});
 	new GameManager();
 });
 
@@ -9,7 +6,6 @@ function GameManager(){
 	var self = this;
 	$(document).keydown(function(event){ if(event.which!=13) self.down(); });
 	$('.button').mousedown(function(event){ self.down(); });
-	$('.button').on("tap",function(event){ self.down(); });
 	$(document).keyup(function(event){ 
 		if(event.which==13){
 			self.pause = !self.pause;
