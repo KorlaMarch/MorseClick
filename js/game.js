@@ -19,7 +19,7 @@ function GameManager(){
 	this.ctx.imageSmoothingEnabled= false;
 	this.score = 0;
 	this.highscore = 0;
-	this.speed = 6.0;
+	this.speed = 5.0;
 	this.pause = false;
 	this.track = new morseTrack();
 	while(this.track.queue.length<16){
@@ -69,8 +69,9 @@ GameManager.prototype.update = function(){
 	if(this.score > this.highscore) this.highscore = this.score;
 	$('#score').text(this.score);
 	$('#highscore').text(this.highscore);
+	this.speed = 5.0+this.score/200;
 	sig.time -= this.speed/30;
-	console.log(sig.time);
+	//console.log(sig.time);
 	if(sig.time<0){
 		this.track.queue.shift();
 	}
@@ -79,16 +80,29 @@ GameManager.prototype.update = function(){
 GameManager.prototype.render = function(){
 	this.ctx.clearRect(280, 0, 40, 500);
 	this.ctx.fillStyle = "#b4b7b8";
+	this.ctx.textAlign = "center";
+	this.ctx.font = "20px sans-serif";
 	var qu = this.track.queue;
 	for(p = 360,i = 0; i < qu.length&&p >= 0; i++){
+		this.ctx.fillStyle = "#b4b7b8";
 		p -= Math.round(qu[i].time*40);
 		if(!qu[i].hidden){
 			if(qu[i] instanceof dot){
 				this.ctx.beginPath();
 				this.ctx.arc(300,p+20, 20, 0, Math.PI*2, false);
 				this.ctx.fill();
+				if(qu[i].text!=""){
+					this.ctx.fillStyle = "#0F0F0F";
+					this.ctx.textBaseline = "middle";
+					this.ctx.fillText(qu[i].text,300,p+20);
+				}
 			}else{
 				this.ctx.fillRect(280,p,40,qu[i].time*40);
+				if(qu[i].text!=""){
+					this.ctx.fillStyle = "#0F0F0F";
+					this.ctx.textBaseline = "bottom";
+					this.ctx.fillText(qu[i].text,300,p+qu[i].sttime*40-10);
+				}
 			}
 		}
 	}

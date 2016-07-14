@@ -1,23 +1,25 @@
-function signal(time, hidden){
+function signal(time, hidden, cha){
 	this.time = time || 1;
+	this.sttime = time || 1;
 	this.hidden = hidden || false;
+	this.text = cha || "";
 }
 
 signal.prototype.move = function(speed){
 	
 };
 
-function dot(){
-	signal.call(this,1,false);
+function dot(cha){
+	signal.call(this,1,false,cha);
 }
 dot.prototype = new signal();
 
-function dash(){
-	signal.call(this,3,false);
+function dash(cha){
+	signal.call(this,3,false,cha);
 }
 dash.prototype = new signal();
 
-function gap(){
-	signal.call(this,1,true);
+function gap(cha){
+	signal.call(this,1,true,cha);
 }
 gap.prototype = new signal();
